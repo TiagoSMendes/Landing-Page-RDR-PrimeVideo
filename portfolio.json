@@ -1,0 +1,19 @@
+{
+  "_sobre": "Lido automaticamente pelo portfólio de Tiago Mendes. Edite para mudar como o projeto aparece lá.",
+  "titulo": {
+    "pt": "Landing Page RDR × Prime Video",
+    "en": "RDR × Prime Video landing page"
+  },
+  "descricao": {
+    "pt": "Landing page conceitual de uma série de Red Dead Redemption no Prime Video, responsiva e com imagens otimizadas.",
+    "en": "Concept landing page for a Red Dead Redemption series on Prime Video, responsive with optimized images."
+  },
+  "tags": [
+    "HTML",
+    "CSS",
+    "Responsivo"
+  ],
+  "site": "",
+  "imagem": "portfolio.webp",
+  "ordem": 3
+}
