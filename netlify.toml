@@ -1,0 +1,12 @@
+# Configuração do Netlify: cada push na main publica o site sozinho.
+[build]
+  # Pasta que contém o index.html
+  publish = "Projeto-RDR-PrimeVideo"
+  # Site estático: não precisa de comando de build
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
