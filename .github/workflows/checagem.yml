@@ -1,0 +1,28 @@
+name: Checagem
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checagem:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sintaxe do JavaScript
+        run: |
+          find . -name '*.js' -not -path './node_modules/*' -not -path './.git/*' -print0 \
+            | xargs -0 -r -n1 node --check
+          echo "JavaScript sem erros de sintaxe ✅"
+
+      - name: Imagens, CSS e links internos existem
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress './**/*.html'
+          fail: true
