@@ -1,0 +1,18 @@
+# Configuração do Netlify: cada push na main publica o site sozinho.
+[build]
+  # Pasta que contém o index.html
+  publish = "Projeto-RDR-PrimeVideo"
+  # Site estático: não precisa de comando de build
+  command = ""
+
+# Imagens, CSS e JS ficam em cache por 1 semana no navegador do visitante
+[[headers]]
+  for = "/*.(webp|png|jpg|jpeg|gif|svg|ico|css|js)"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
