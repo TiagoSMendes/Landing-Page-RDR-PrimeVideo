@@ -8,10 +8,29 @@
     text-decoration: none;
 }
 body{
-    background: url(../imgsgames/bg.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    overflow: visible;
+    min-height: 100vh;
+    background: #1b1b1b url(../imgsgames/bg.webp) center top / cover no-repeat;
+    overflow-x: hidden;
+}
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+.icon-btn{
+    display: flex;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+a:focus-visible,
+button:focus-visible{
+    outline: 2px solid #ffab00;
+    outline-offset: 4px;
 }
 header{
     display: flex;
@@ -21,6 +40,7 @@ header{
 }
 .logo{
     width: 150px;
+    height: auto;
 }
 .navigation ul{
     display: flex;
@@ -44,6 +64,8 @@ header{
 }
 .navigation .perfil{
     width: 40px;
+    height: 40px;
+    object-fit: cover;
     cursor: pointer;
     border-radius: 50%;
 }
@@ -65,6 +87,7 @@ main section{
 }
 main section .logoRDR{
     width: 30em;
+    max-width: 100%;
     margin: 3em 0;
 }
 main section .btn-box{
@@ -88,7 +111,8 @@ main section .btn-box{
 }
 main section .text{
     color: #fff;
-    line-height: 22px;
+    line-height: 1.6;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .8);
 }
 .btn-box2{
     display: flex;
@@ -110,6 +134,22 @@ main section .text{
 .btn-box2 .play{
     width: 1.4em;
     filter: invert(1);
+}
+.btn-box2 > span{
+    display: flex;
+    flex-direction: column;
+}
+.btn-box2__title{
+    font-size: 0.7em;
+    font-weight: 700;
+}
+.btn-box2__sub{
+    font-size: 0.75em;
+}
+.aviso{
+    padding: 0 48px 1.5em;
+    color: rgba(255, 255, 255, .6);
+    font-size: 12px;
 }
 
 footer .cards{
@@ -138,4 +178,77 @@ footer .card img{
 }
 .cards .card:hover ~ .card{
     transform: translateX(140px);
+}
+@media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; }
+}
+
+/* Tablet */
+@media (max-width: 1100px){
+    footer .cards{
+        margin-left: 0;
+        justify-content: center;
+        padding-left: 120px;
+    }
+}
+
+/* Celular */
+@media (max-width: 760px){
+    header{
+        flex-direction: column;
+        gap: 18px;
+        padding: 20px;
+    }
+    .navigation ul{
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .navigation ul li a{
+        font-size: 16px;
+    }
+    main section{
+        margin: 0 20px;
+    }
+    main section .logoRDR{
+        margin: 1.5em 0;
+    }
+    /* Fundo escuro atrás do texto para dar leitura sobre a imagem */
+    main section .text{
+        background: rgba(0, 0, 0, .6);
+        padding: 14px 16px;
+        border-radius: 6px;
+    }
+    main section .btn-box{
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 1.5em;
+    }
+    .btn-box .btn{
+        flex: 1 1 140px;
+        padding: 14px 20px;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    .btn-box2{
+        align-self: stretch;
+        justify-content: center;
+    }
+    footer .cards{
+        padding: 2em 20px 0;
+        flex-direction: column;
+        gap: 16px;
+    }
+    footer .card{
+        width: 100%;
+        max-width: 360px;
+        margin-left: 0;
+    }
+    .cards .card:hover ~ .card{
+        transform: none;
+    }
+    .aviso{
+        padding: 1em 20px 1.5em;
+        text-align: center;
+    }
 }
